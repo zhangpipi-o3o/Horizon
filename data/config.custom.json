@@ -90,7 +90,8 @@
           "enabled": true,
           "time_filter": "day",
           "fetch_limit": 15,
-          "min_score": 60
+          "min_score": 60,
+          "profile": "tech-news"
         },
         {
           "subreddit": "LocalLLaMA",
