@@ -28,7 +28,7 @@
     "rss": [
       {
         "name": "量子位",
-        "url": "https://www.qbitai.com/feed",
+        "url": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml",
         "enabled": true,
         "category": "ai-news",
         "profile": "tech-news",
@@ -86,7 +86,11 @@
       "subreddits": [
         {
           "subreddit": "MachineLearning",
-          "sort": "hot"
+          "sort": "hot",
+          "enabled": true,
+          "time_filter": "day",
+          "fetch_limit": 15,
+          "min_score": 60
         },
         {
           "subreddit": "LocalLLaMA",
