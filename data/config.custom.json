@@ -1,0 +1,239 @@
+{
+  "ai": {
+    "provider": "openai",
+    "provider_chain": null,
+    "model": "openai/gpt-5.6-luna",
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "temperature": 0.3,
+    "max_tokens": 8192,
+    "throttle_sec": 0.0,
+    "analysis_concurrency": 1,
+    "enrichment_concurrency": 1,
+    "languages": [
+      "zh"
+    ],
+    "azure_endpoint_env": null,
+    "api_version": null
+  },
+  "sources": {
+    "github": [],
+    "hackernews": {
+      "enabled": true,
+      "fetch_top_stories": 30,
+      "min_score": 100,
+      "category": null,
+      "profile": null
+    },
+    "rss": [
+      {
+        "name": "量子位",
+        "url": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml",
+        "enabled": true,
+        "category": "ai-news",
+        "profile": "tech-news",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "The Rundown AI",
+        "url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+        "enabled": true,
+        "category": "ai-news",
+        "profile": "tech-news",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "OpenAI 官方新闻",
+        "url": "https://openai.com/news/rss.xml",
+        "enabled": true,
+        "category": "ai-official",
+        "profile": "tech-news",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Anthropic 官方新闻（社区 RSS 转换）",
+        "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
+        "enabled": true,
+        "category": "ai-official",
+        "profile": "tech-news",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Anthropic 官方工程博客（社区 RSS 转换）",
+        "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_engineering.xml",
+        "enabled": true,
+        "category": "ai-engineering",
+        "profile": "tech-blog",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/atom/everything/",
+        "enabled": true,
+        "category": "ai-tools",
+        "profile": "tech-news"
+      },
+      {
+        "name": "GitHub Trending - Daily",
+        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
+        "enabled": true,
+        "category": "github-trending",
+        "profile": "tech-news"
+      }
+    ],
+    "reddit": {
+      "enabled": true,
+      "subreddits": [
+        {
+          "subreddit": "MachineLearning",
+          "sort": "hot",
+          "enabled": true,
+          "time_filter": "day",
+          "fetch_limit": 15,
+          "min_score": 60,
+          "profile": "tech-news"
+        },
+        {
+          "subreddit": "LocalLLaMA",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 60,
+          "profile": "tech-news"
+        }
+      ],
+      "users": [],
+      "fetch_comments": 5
+    },
+    "telegram": {
+      "enabled": true,
+      "channels": [
+        {
+          "channel": "zaihuapd",
+          "enabled": true,
+          "fetch_limit": 20,
+          "profile": [
+            "tech-news",
+            "finance-news"
+          ]
+        }
+      ]
+    },
+    "twitter": {
+      "enabled": true,
+      "mode": "apify",
+      "users": [
+        "elonmusk",
+        "sama",
+        "karpathy",
+        "AndrewYNg",
+        "emollick",
+        "amasad",
+        "DarioAmodei",
+        "oran_ge",
+        "OpenAI",
+        "AnthropicAI"
+      ],
+      "keywords": [],
+      "fetch_limit": 100,
+      "fetch_reply_text": false,
+      "apify_token_env": "APIFY_TOKEN_KEY",
+      "actor_id": "altimis~scweet",
+      "category": "ai-social",
+      "profile": "tech-news"
+    },
+    "openbb": null,
+    "ossinsight": {
+      "enabled": false,
+      "period": "past_24_hours",
+      "languages": [
+        "All",
+        "Python",
+        "TypeScript"
+      ],
+      "keywords": [],
+      "min_stars": 5,
+      "max_items": 30,
+      "category": null,
+      "profile": null
+    },
+    "gdelt": null,
+    "google_news": null
+  },
+  "collection": {
+    "time_window_hours": 24
+  },
+  "digest": {
+    "max_items": null,
+    "category_groups": {},
+    "default_group": "other",
+    "default_group_limit": null,
+    "profile_order": [
+      "tech-news",
+      "tech-blog",
+      "finance-news"
+    ]
+  },
+  "processing": {
+    "profiles_dir": "profiles",
+    "default_profile": "tech-news",
+    "profile_settings": {
+      "tech-news": {
+        "threshold": 7.0,
+        "topic_dedup": true
+      },
+      "tech-blog": {
+        "threshold": 4.0,
+        "topic_dedup": false
+      },
+      "finance-news": {
+        "threshold": 7.0,
+        "topic_dedup": true
+      }
+    }
+  },
+  "display": {
+    "icon_style": "emoji"
+  },
+  "extractors": {},
+  "email": null,
+  "webhook": {
+    "enabled": true,
+    "url_env": "HORIZON_WEBHOOK_URL",
+    "delivery": "summary_and_items",
+    "overview_position": "last",
+    "platform": "feishu",
+    "layout": "collapsible",
+    "fallback_layout": "markdown",
+    "languages": [
+      "zh"
+    ],
+    "request_body": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true
+        },
+        "header": {
+          "title": {
+            "tag": "plain_text",
+            "content": "#{message_title}"
+          },
+          "template": "blue"
+        },
+        "body": {
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "#{summary}"
+            }
+          ]
+        }
+      }
+    },
+    "headers": ""
+  },
+  "wechat": null
+}
